@@ -25,4 +25,4 @@ reinforcement learning techniques in supply chain optimization and their adaptab
 scenarios
 
 ## Problem Formulation
-![Hi Image](./report%2Bposter/all%20figures/overall_dataset.png)
+![Hi Image](./report%2Bposter/all%20figures/rl_dual_sourcing_problem_formulation.png)
