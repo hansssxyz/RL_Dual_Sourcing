@@ -33,6 +33,37 @@ Under the dual sourcing problem, inventory can be replenished through two avenue
 ![Hi Image](./report%2Bposter/all%20figures/rl_dual_sourcing_problem_formulation.png)
 
 ## Getting Started
+### Installing Dependencies 
 ```python
-import dual_sourcing
+pip install torch
+pip install numpy
+pip install matplotlib
 ```
+
+### Using the Dual Sourcing Environment
+```python
+from dual_sourcing_game import DualSourcing
+config={'regular_leadtime':8,'express_leadtime':2,'regular_cost':6,'express_cost':7,"max_order":8,"max_inventory":30,
+       'store_cost':1.6,'back_cost':3.8,'y':0.95,'starting_state':[15,[0 for _ in range(8)],[0 for _ in range(2)]]}
+game=DualSourcing(config)
+```
+one can also add additional arguments such as episode length, episode repetitions, arbitrary demand sequence, etc. 
+running game.play() allows the users to play the dual sourcing game
+
+### Using the A2C and TBS Agents
+```python
+agent1=greedy_td_0_A2C_agent(game,[4,4,4],[2,2],0.001,0.002)
+for i in range(game.total_episode_len):
+    agent1.step()
+    if i%game.episode_len==0:
+        agent1.end_of_episode_update()
+```
+here the game is the dual sourcing environmentg from above, [4,4,4] and [2,2] correspond to the layers of the actor and critic neural networks, and 0.001=actor learning rate, 0.002=critic learning rate
+
+```python
+game.reset()
+agent2=TBS_policy(game,service_level=0.9)
+for i in range(game.total_episode_len):
+    agent2.step()
+```
+here the game must be reset before it can be re-run with TBS policy.
