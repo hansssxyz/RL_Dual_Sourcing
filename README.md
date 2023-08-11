@@ -1,5 +1,5 @@
 # RL_Dual_Sourcing
-Applying Actor-Critic Method to the Dual Sourcing Inventory problem. Summer 2023
+Applying Actor-Critic Method to the Dual Sourcing Inventory problem. Jun-Aug 2023
 
 ## Summary of our work
 In this paper, we analyze the performance of Advantage Actor-Acritic(A2C) algorithm against
@@ -23,3 +23,169 @@ first experiment. This result illustrates potential weaknesses in evaluating the
 Agents solely based on simulated environments. Our findings offer valuable insights into applying
 reinforcement learning techniques in supply chain optimization and their adaptability to real-world
 scenarios
+
+## Problem Formulation
+In the dual-sourcing problem, the inventory can be replenished at unit cost 
+�
+�
+c 
+r
+​
+  from a regular supplier 
+�
+R with lead time 
+�
+�
+L 
+r
+​
+  or/and from an express source 
+�
+E with lead time 
+�
+�
+L 
+e
+​
+  at premium unit cost 
+�
+�
+c 
+e
+​
+ . In the beginning of any timestamp 
+�
+t, two order quantities, 
+�
+�
+�
+q 
+t
+r
+​
+  and 
+�
+�
+�
+q 
+t
+e
+​
+ , and must be decided after observing the last inventory level on hand, 
+�
+�
+−
+1
+I 
+t−1
+​
+ , and outstanding receipts from regular and express suppliers, 
+�
+�
+−
+1
+�
+=
+(
+�
+�
+−
+�
+�
+�
+,
+�
+�
+−
+�
+�
++
+1
+�
+,
+…
+,
+�
+�
+−
+1
+�
+)
+Q 
+t−1
+r
+​
+ =(q 
+t−L 
+r
+​
+ 
+r
+​
+ ,q 
+t−L 
+r
+​
+ +1
+r
+​
+ ,…,q 
+t−1
+r
+​
+ ) and 
+�
+�
+−
+1
+�
+=
+(
+�
+�
+−
+�
+�
+�
+,
+�
+�
+−
+�
+�
++
+1
+�
+,
+…
+,
+�
+�
+−
+1
+�
+)
+Q 
+t−1
+e
+​
+ =(q 
+t−L 
+e
+​
+ 
+e
+​
+ ,q 
+t−L 
+e
+​
+ +1
+e
+​
+ ,…,q 
+t−1
+e
+​
+ ).
+
