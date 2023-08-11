@@ -31,3 +31,8 @@ Under the dual sourcing problem, inventory can be replenished through two avenue
 
 ## Problem Formulation
 ![Hi Image](./report%2Bposter/all%20figures/rl_dual_sourcing_problem_formulation.png)
+
+## Getting Started
+```python
+import dual_sourcing
+```
