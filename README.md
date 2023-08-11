@@ -25,19 +25,4 @@ reinforcement learning techniques in supply chain optimization and their adaptab
 scenarios
 
 ## Problem Formulation
-In the dual-sourcing problem, the inventory can be replenished at unit cost \(c_r\) from a regular supplier \(R\) with lead time \(L_r\) or/and from an express source \(E\) with lead time \(L_e\) at premium unit cost \(c_e\). In the beginning of any timestamp \(t\), two order quantities, \(q^r_t\) and \(q^e_t\), must be decided after observing the last inventory level on hand, \(I_{t-1}\), and outstanding receipts from regular and express suppliers, \(\mathbf{Q}^{r}_{t-1}= (q^r_{t-L_r},q^r_{t-L_r+1}, \dots,  q^r_{t-1})\) and \(\mathbf{Q}^{e}_{t-1}= (q^e_{t-L_e},q^e_{t-L_e+1}, \dots,  q^e_{t-1})\).
 
-After the order decision, orders \(q^r_{t-L_r}\) and \(q^e_{t-L_e}\) are received and added to the on-hand inventory. Then, the unknown demand \(D_t\) is realized and subtracted from the on-hand inventory. Excess demand is fully backlogged so that the inventory and outstanding receipts evolve as:
-$$
-I_{t+1} = I_t + q^r_{t-L_r} + q^e_{t-L_e} - D_{t}
-$$
-Finally, outstanding pipeline vectors are updated as:
-$$
-\mathbf{Q}^{r}_{t} = (q^r_{t-L_r+1},q^r_{t-L_r+2}, \dots,  q^r_{t})
-$$ 
-and 
-$$
-\mathbf{Q}^{e}_{t} = (q^e_{t-L_e+1},q^e_{t-L_e+2}, \dots,  q^e_{t})
-$$
-
-The dual-sourcing problem can be modeled as a Discrete Markov Decision Process with states represented by the on-hand inventory level and the pipeline vectors: \(\textbf{S}_t = (I_{t-1}, \mathbf{Q}^{r}_{t-1},\mathbf{Q}^{e}_{t-1})\). The action taken in period \(t\) is now two-dimensional: \(\textbf{a}_t = (q^r_t, q^e_t)\) consisting of the ordered quantities from the regular and expedited sources. To decide what new orders at \(t\) should be, we need a policy that maps states to actions, which is defined as \(\pi\): \(\{f_{t}^{\pi}, t \geq 0\}\), with \((q^r_t, q^e_t) = f^{\pi}_t(\textbf{q}^r_t, \textbf{q}^e_t, I_t)\).
