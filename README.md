@@ -24,5 +24,10 @@ Agents solely based on simulated environments. Our findings offer valuable insig
 reinforcement learning techniques in supply chain optimization and their adaptability to real-world
 scenarios
 
+## Brief Intro 
+One common practice in supply chain management is Dual Sourcing, which is also known as dual supply or dual vendor strategy. This strategy involves establishing relationships with two or more suppliers for a particular product, component, or raw material, thereby providing an alternative source of supply in case one supplier encounters disruptions or fails to meet the required business objectives. Considering the variability in both price and delivery time across different suppliers, the enterprise need to find an optimal strategy of managing the multiple suppliers in order to maximize their own profitability.
+
+Under the dual sourcing problem, inventory can be replenished through two avenues: a slow and economical source, and a faster but more expensive source. This parallels the dual-mode problem, where inventory is restocked from a single supplier utilizing two complementary modes of transportation. In this paper, we call the former the regular supplier and the later express supplier, and their different capabilities are reflected in parameters regular/express lead time and regular/express costs. 
+
 ## Problem Formulation
 ![Hi Image](./report%2Bposter/all%20figures/rl_dual_sourcing_problem_formulation.png)
